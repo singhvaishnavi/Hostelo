@@ -1,0 +1,104 @@
+create database hosteldb;
+
+create table user(
+    userid int primary key auto_increment,
+    email varchar(30) unique,
+    password varchar(20) not null,
+    type varchar(2)
+);
+
+create table person(
+    personid int primary key auto_increment,
+    userid int,
+    firstname varchar(30),
+    lastname varchar(30),
+    gender varchar(2),
+    dob varchar(15),
+    address varchar(1000),
+    id varchar(30),
+    phone varchar(12),
+    parentphone varchar(12),
+    inst varchar(50),
+    status varchar(10),
+    med varchar(1000),
+    FOREIGN KEY (userid) REFERENCES user(userid)
+);
+
+create table owner(
+    ownerid int primary key auto_increment,
+    userid int,
+    firstname varchar(30),
+    lastname varchar(30),
+    gender varchar(2),
+    phone varchar(12),
+    FOREIGN KEY (userid) REFERENCES user(userid)
+);
+
+create table hostel(
+    hostelid int primary key auto_increment,
+    userid int,
+    name varchar(50),
+    regno int,
+    regne varchar(40),
+    timing varchar(50),
+    cuisine varchar(50),
+    diet varchar(15),
+    address varchar(1000),
+    FOREIGN KEY (userid) REFERENCES user(userid) on delete cascade
+);
+
+create table facilities(
+	powerback char,
+	security char,
+	laundry char,
+	cleaning char,
+	gym char,
+	wifi char,
+	hwater char,
+	ent char,
+	fridge char,
+	microwave char,
+	gas char,
+	sroom char,
+	wmachine char,
+	extra varchar(10000),
+	hostelid int, 
+	FOREIGN KEY (hostelid) REFERENCES hostel(hostelid)
+	ON DELETE CASCADE
+);
+
+create table review(
+	userid int,
+	reviewid int not null auto_increment primary key,
+	hostelid int,
+	reviews varchar(1000),
+	rating int,
+	FOREIGN KEY (hostelid) REFERENCES hostel(hostelid),
+	FOREIGN KEY (userid) REFERENCES user(userid)
+);
+
+
+
+create table roomtype(
+roomtypeid int not null auto_increment primary key,
+name varchar(2),
+acavail char,
+washroom char,
+excup char,
+locker char,
+socket char,
+minifridge char,
+extra varchar(1000),
+hostelid int,
+FOREIGN KEY (hostelid) REFERENCES hostel(hostelid) on delete cascade
+);
+
+
+create table roomdet(
+roomid int not null auto_increment primary key,
+sharing int,
+cost int,
+noofrooms int,
+roomtypeid int,
+FOREIGN KEY (roomtypeid) REFERENCES roomtype(roomtypeid) on delete cascade
+);	

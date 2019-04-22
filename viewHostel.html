@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+    <div class="row" style="padding-left: 3vw">
+            <div class="col m11 card" style="padding-top: 1vh">
+                    <div class="row">
+
+
+                                <table class="col s12 white centered">
+                                        <thead>
+                                            <tr>
+                                                <th>Hostel</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                          <tr>
+                                              <td>Name</td>
+                                              <td>{{ row['name'] }}</td>
+                                          </tr>
+
+                                            <tr>
+                                                <td>Owner</td>
+                                                <td>{{ row['firstname'] + ' ' + row['lastname'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gender</td>
+                                                <td>{{ row['gen'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Timmings</td>
+                                                <td>{{ row['stime']+' '+row['sam']+' to '+row['etime']+' '+row['eam'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td>{{ row['address'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Contact</td>
+                                                <td>{{ row['phone'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Registeration Number</td>
+                                                <td>{{ row['regno'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Couisine</td>
+                                                <td>{{ row['cuisine'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Diet</td>
+                                                <td>{{ row['diet'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><a href="/viewFacilities?hostelid={{ row['hostelid'] }}">
+                                                    <button class="waves-effect waves-light btn">View Facilites</button>
+                                                </a></td>
+
+                                                <td><a href="/viewRooms?hostelid={{ row['hostelid'] }}">
+                                                    <button class="waves-effect waves-light btn">View Rooms</button>
+                                                </a></td>
+                                            </tr>
+
+                                            <tr>
+                                            <td><a href="/viewReview?hostelid={{ row['hostelid'] }}">
+                                            <button class="waves-effect waves-light btn">View Reviews</button>
+                                            </a></td>
+                                            <td><a href="/addReview?hostelid={{ row['hostelid'] }}">
+                                            <button class="waves-effect waves-light btn">Add Review</button>
+                                            </a></td>
+                                            </tr>
+
+                                            {#
+                                            <!-- <tr> -->
+                                                <!-- <td></td> -->
+                                                <!-- <td><a href={{ "/order?id=" + row[i]['']rowId }} class="btn waves-effect waves-light red">Order Now</a></td> -->
+                                            <!-- </tr> -->
+                                        #}
+                                    </tbody>
+
+                                 </table>
+                    </div>
+            </div>
+            </div>
+
+{% endblock %}
