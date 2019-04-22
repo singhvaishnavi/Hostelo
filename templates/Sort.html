@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+  <h3 align="center">Select sorting order</h3>
+<div class="container">
+
+        <nav class="centre-align">
+
+            <table class="col s12 white centered">
+
+              <td>
+                <tr>
+                  <td><a href="/ascSort">
+                      <button class="waves-effect waves-light btn"> Ascending Sort</button>
+                  </a></td>
+                  <td><a href="/descSort">
+                      <button class="waves-effect waves-light btn">Descending Sort</button>
+                  </a></td>
+                </tr>
+              </td>
+            </table>
+        </nav>
+
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
+{% endblock %}

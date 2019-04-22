@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+
+    <div class="container">
+            <h4>Review the hostel</h4>
+            <form class="col s12" action="/addReview" method="POST">
+                 <div class="row">
+                   <div class="input-field col s12">
+                       <textarea id="reviewer" name="reviewer" class="materialize-textarea" data-length="1000"></textarea>
+                       <label for="reviewer">Reviewer</label>
+                   </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                      <textarea id="reviews" name="reviews" class="materialize-textarea" data-length="1000"></textarea>
+                      <label for="reviews">Review</label>
+                  </div>
+
+                    </div>
+
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <select name="rating">
+                            <option value="" disabled selected>Choose rating</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                        <label>Rating</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                  </button>
+                </div>
+
+              </form>
+    </div>
+
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selMenu = document.querySelectorAll('select');
+            var selinstances = M.FormSelect.init(selMenu, {});
+
+            $('textarea#address').characterCounter();
+
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+<h2 class="center-align">Room Details</h2>
+
+{% if(l == 0): %}
+    <h2>Hostel Deleted!</h2>
+
+    {% endif %}
+    {% endblock %}

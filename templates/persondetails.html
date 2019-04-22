@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+<h2 class="center-align">Details</h2>
+<div class="container">
+<table class="centered">
+        <thead>
+          <tr>
+              <th>Field</th>
+              <th>Value</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>{{ person['firstname'] + ' ' + person['lastname'] }}</td>
+          </tr>
+          
+          <tr>
+            <td>Gender</td>
+            <td>{{ person['gender'] }}</td>
+          </tr>
+
+          <tr>
+            <td>DOB</td>
+            <td>{{ person['dob'] }}</td>
+          </tr>
+
+          <tr>
+            <td>Address</td>
+            <td>{{ person['address'] }}</td>
+            </tr>
+
+            <tr>
+                <td>ID</td>
+                <td>{{ person['id'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Phone</td>
+                <td>{{ person['phone'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Parent Phone</td>
+                <td>{{ person['parentphone'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Institute</td>
+                <td>{{ person['inst'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Status</td>
+                <td>{{ person['status'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Medical condition</td>
+                <td>{{ person['med'] }}</td>
+            </tr>
+
+        </tbody>
+      </table>
+    </div> 
+{% endblock %}

@@ -1,0 +1,173 @@
+    <html>
+        <body>
+        
+    <h2 class="center-align">Should be a Owner to add Facilities</h2>
+    
+
+    <div class="container">
+            <h4>Enter the facilities of the hostel</h4>
+            <form class="col s12" action="/addfacilities" method="POST">
+                 <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="powerback">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Power Backup</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="security">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Security</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="laundry">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Laundry</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="cleaning">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Cleaning</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="gym">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Gym</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="wifi">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Wifi</label>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="hwater">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Hot Water</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="ent">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Entertainment</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="fridge">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Fridge</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="microwave">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Microwave</label>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="gas">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Gas Stove</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="sroom">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Study Room</label>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <div class="input-field col s6">
+                        <select name="wmachine">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Washing Machine</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <textarea id="extra" name="extra" class="materialize-textarea" data-length="1000"></textarea>
+                        <label for="extra">Additional Facilities</label>
+                    </div>
+                </div>
+
+        
+                <div class="row">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                  </button>
+                </div>
+        
+              </form>
+    </div>  
+
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selMenu = document.querySelectorAll('select');
+            var selinstances = M.FormSelect.init(selMenu, {});
+    
+            $('textarea#address').characterCounter();
+    
+        });
+    </script>
+    </body>
+    </html>

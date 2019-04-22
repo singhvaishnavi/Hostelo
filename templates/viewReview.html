@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+{% if(l <= 0): %}
+    <h3>Sorry No Reviews Yet!</h3>
+{% else: %}
+    <!-- <div class="container"> -->
+    {% for i in range(l): %}
+    <div class="row" style="padding-left: 3vw">
+            <div class="col m11 card" style="padding-top: 1vh">
+                    <div class="row">
+
+
+                                <table class="col s12 white centered">
+                                        <thead>
+                                            <tr>
+                                                <th>Hostel</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                          <tr>
+                                              <td>Name</td>
+                                              <td>{{ row[i]['name'] }}</td>
+                                          </tr>
+
+                                            <tr>
+                                                <td>Reviewer</td>
+                                                <td>{{ row[i]['reviewer']}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Review</td>
+                                                <td>{{ row[i]['reviews'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Rating</td>
+                                                <td>{{ row[i]['rating'] }} out of 5</td>
+                                            </tr>
+
+                                            {#
+                                            <!-- <tr> -->
+                                                <!-- <td></td> -->
+                                                <!-- <td><a href={{ "/order?id=" + row[i]['']rowId }} class="btn waves-effect waves-light red">Order Now</a></td> -->
+                                            <!-- </tr> -->
+                                        #}
+                                    </tbody>
+
+                                 </table>
+                    </div>
+            </div>
+            </div>
+    {% endfor %}
+    <!-- </div> -->
+{% endif %}
+
+{% endblock %}

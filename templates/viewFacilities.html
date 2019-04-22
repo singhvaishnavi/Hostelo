@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+<div class="container">
+    <h2>Facilities of the Hostel</h2>
+    <table class="col s12 m7 white centered">
+        <thead>
+            <tr>
+                <th>Hostel</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>Power Backup</td>
+                <td>{{ row['powerback'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Security</td>
+                <td>{{ row['security'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Laundry</td>
+                <td>{{ row['laundry'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Cleaning</td>
+                <td>{{ row['cleaning'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Gym</td>
+                <td>{{ row['gym'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Wifi</td>
+                <td>{{ row['wifi'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Hot Water</td>
+                <td>{{ row['hwater'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Entertainment</td>
+                <td>{{ row['ent'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Fridge</td>
+                <td>{{ row['fridge'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Microwave</td>
+                <td>{{ row['microwave'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Gas</td>
+                <td>{{ row['gas'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Study Room</td>
+                <td>{{ row['sroom'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Washing Machine</td>
+                <td>{{ row['wmachine'] }}</td>
+            </tr>
+
+            <tr>
+                <td>Extra Facilities</td>
+                <td>{{ row['extra'] }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

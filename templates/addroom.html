@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+    {% if(own == False): %}
+        <h2 class="center-align">Should be a Owner to add Facilities</h2>
+    {% else: %}
+
+    <div class="container">
+            <h4>Enter the detials of the room</h4>
+            <form class="col s12" action="/addroom" method="POST">
+                 <div class="row">
+
+                    <div class="input-field col s6">
+                        <select name="name">
+                            <option value="" disabled selected>Choose Room type</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                            <option value="XL">Extra Large</option>
+                        </select>
+                        <label>Room Size</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="acavail">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>AC</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <select name="washroom">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Attached Washroom</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="excup">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Extra Cupboard</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <select name="locker">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Locker</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="socket">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Socket</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <select name="minifridge">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value="Y">Yes</option>
+                            <option value="N">No</option>
+                        </select>
+                        <label>Mini Fridge</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <textarea id="extra" name="extra" class="materialize-textarea" data-length="1000"></textarea>
+                        <label for="extra">Additional Room Facilities</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s3">
+                        <select name="sharing">
+                            <option value="" disabled selected>Choose availability</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                        </select>
+                        <label>Sharing</label>
+                    </div>
+
+                    <div class="input-field col s3">
+                        <input type="text" name="cost" id="cost">
+                        <label for="cost">Cost</label>
+                    </div>
+
+                    <div class="input-field col s3">
+                        <input type="text" name="noofrooms" id="noofrooms">
+                        <label for="noofrooms">Number of rooms</label>
+                    </div>
+                </div>
+
+                <input type="text" style="display: none" name="hostelid" value="{{ row }}">
+
+                <div class="row">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                  </button>
+                </div>
+
+              </form>
+    </div>
+
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selMenu = document.querySelectorAll('select');
+            var selinstances = M.FormSelect.init(selMenu, {});
+
+            $('textarea#address').characterCounter();
+
+        });
+    </script>
+
+    {% endif %}
+
+{% endblock %}

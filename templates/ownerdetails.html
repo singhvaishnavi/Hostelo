@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+<h2 class="center-align">Owner Details</h2>
+<div class="container">
+    <table class="centered">
+        <thead>
+          <tr>
+              <th>Field</th>
+              <th>Value</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>{{ owner['firstname'] + ' ' + owner['lastname'] }}</td>
+          </tr>
+          
+          <tr>
+            <td>Gender</td>
+            <td>{{ owner['gender'] }}</td>
+          </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td>{{ owner['phone'] }}</td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

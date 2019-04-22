@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+    <div class="container">
+        <h3>Signup Page</h3>
+        <form action="/signup" method="post">
+            <div class="row">
+                <div class="input-field">
+                    <input type="email" name="email" id="email" >
+                    <label for="email">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <input type="password" name="password" id="password" >
+                    <label for="password">Password</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    <input type="password" name="password2" id="password2" >
+                    <label for="password2">Confirm Password</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                        <select name="type">
+                        <option value="" disabled selected>Choose your Type</option>
+                        <option value="O">Owner</option>
+                        <option value="S">Other</option>
+                        </select>
+                        <label>Type of User</label>
+                    </div>
+                </div>
+
+
+            <button class="btn waves-effect waves-light" type="submit">Signup</button>
+        </form>
+    </div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // var elems = document.querySelectorAll('.datepicker');
+                // var instances = M.Datepicker.init(elems, {yearRange: 70, format: 'yyyy-mm-dd'});
+            
+                var selMenu = document.querySelectorAll('select');
+                var selinstances = M.FormSelect.init(selMenu, {});
+    
+                // $('textarea#status').characterCounter();
+                // $('textarea#address').characterCounter();
+                // $('textarea#status2').characterCounter();
+            });
+        </script>
+{% endblock %}

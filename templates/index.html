@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+<div class="container">
+    <div style="height: 92vh; padding-top: 40vh" id="searchDiv">
+        <nav class="centre-align">
+            <div class="nav-wrapper deep-orange darken-3">
+                <form action="/search" method="GET">
+                    <div class="input-field">
+                    <input name="search" id="search" type="search" required placeholder="Search">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                    </div>
+                    <table class="col s12 white centered center-align">
+                      <tr>
+                      <td><a href="/Sort">
+                          <button class="waves-effect waves-light btn">Sort</button>
+                      </a></td>
+                    </tr>
+                    </table>
+                </form>
+            </div>
+
+        </nav>
+    </div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
+{% endblock %}

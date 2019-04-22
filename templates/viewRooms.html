@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+<h2 class="center-align">Room Details</h2>
+
+{% if(l == 0): %}
+    <h2>No Rooms Yet!</h2>
+{% else: %}
+<div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+
+            {% for i in range(l): %}
+                {% if(i == 0): %}
+                    <li class="tab col s3"><a class="active" href="{{ '#' + row[i]['name'] }}">{{ row[i]['name'] + ' Rooms' }}</a></li>
+                {% else: %}
+                <li class="tab col s3"><a href="{{ '#' + row[i]['name'] }}">{{ row[i]['name'] + ' Rooms' }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% for i in range(l): %}
+        <div id="{{ row[i]['name'] }}" class="col s12">
+            <h4>{{ row[i]['name'] }} Type Room</h4>
+            <div class="container">
+                    <table class="col s12 m7 white centered">
+                        <thead>
+                            <tr>
+                                <th>Room</th>
+                                <th>Facilities</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>AC Availability</td>
+                                <td>{{ row[i]['acavail'] }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Attached Washroom</td>
+                                <td>{{ row[i]['washroom'] }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Extra Cupboard</td>
+                                <td>{{ row[i]['excup'] }}</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Locker</td>
+                                <td>{{ row[i]['locker'] }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Socket</td>
+                                <td>{{ row[i]['socket'] }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mini Fridge</td>
+                                <td>{{ row[i]['minifridge'] }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Extra Facilities</td>
+                                <td>{{ row[i]['extra'] }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+            </div>
+
+            <br/>
+            
+            <div class="container">
+                    <table class="col s12 m7 white centered">
+                        <thead>
+                            <tr>
+                                <th>Rooms</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                                <tr>
+                                    <td>Sharing</td>
+                                    <td>{{ row[i]['sharing'] }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Cost</td>
+                                    <td>{{ row[i]['cost'] }}</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>No. of Rooms</td>
+                                    <td>{{ row[i]['noofrooms'] }}</td>
+                                </tr>
+                                
+                        </tbody>
+                    </table>
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+      $(document).ready(function(){
+            $('.tabs').tabs();
+        });
+</script>
+{% endif %}
+{% endblock %}

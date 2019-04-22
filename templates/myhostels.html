@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+{% if(l <= 0): %}
+    <h3>No hostels added yet!</h3>
+{% else: %}
+    <!-- <div class="container"> -->
+    <h2 class="center-align">My Hostels</h2>
+    {% for i in range(l): %}
+    <div class="row" style="padding-left: 3vw">
+            <div class="col m11 card" style="padding-top: 1vh">
+                    <div class="row">
+
+                                <table class="col s12 white centered center-align">
+                                        <thead>
+                                            <tr>
+                                                <th>Hostel</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                          <tr>
+                                              <td>Name</td>
+                                              <td>{{ row[i]['name'] }}</td>
+                                          </tr>
+                                            <tr>
+                                                <td>Timmings</td>
+                                                <td>{{ row[i]['stime']+' '+row[i]['sam']+' to '+row[i]['etime']+' '+row[i]['eam'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gender</td>
+                                                <td>{{ row[i]['gen'] }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Address</td>
+                                                <td>{{ row[i]['address'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Contact</td>
+                                                <td>{{ row[i]['phone'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Registeration Number</td>
+                                                <td>{{ row[i]['regno'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Couisine</td>
+                                                <td>{{ row[i]['cuisine'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Diet</td>
+                                                <td>{{ row[i]['diet'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><a href="/viewFacilities?hostelid={{ row[i]['hostelid'] }}">
+                                                    <button class="waves-effect waves-light btn">View Facilites</button>
+                                                </a></td>
+                                                <td><a href="/deleteHostel?hostelid={{ row[i]['hostelid'] }}">
+                                                <button class="waves-effect waves-light btn">Delete Hostel</button>
+                                                </a></td>
+                                                </tr>
+                                                <tr>
+                                                <td><a href="/viewRooms?hostelid={{ row[i]['hostelid'] }}">
+                                                    <button class="waves-effect waves-light btn">View Rooms</button>
+                                                </a></td>
+
+                                                <td><a href="/addroom?hostelid={{ row[i]['hostelid'] }}">
+                                                    <button class="waves-effect waves-light btn">Add Rooms</button>
+                                                </a></td>
+                                              </tr>
+
+                                            {#
+                                            <!-- <tr> -->
+                                                <!-- <td></td> -->
+                                                <!-- <td><a href={{ "/order?id=" + row[i]['']rowId }} class="btn waves-effect waves-light red">Order Now</a></td> -->
+                                            <!-- </tr> -->
+                                        #}
+                                    </tbody>
+
+                                 </table>
+                    </div>
+            </div>
+            </div>
+    {% endfor %}
+    <!-- </div> -->
+{% endif %}
+
+{% endblock %}

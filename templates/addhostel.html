@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if(flag): %}
+    {% include "nav.html" %}
+{% else: %}
+    {% include "protectednav.html" %}
+{% endif %}
+
+    {% if(own == False): %}
+        <h2 class="center-align">Should be a Owner to add Hostel</h2>
+    {% else: %}
+
+    <div class="container">
+            <h4>Enter the details of hostel</h4>
+            <form class="col s12" action="/addhostel" method="POST">
+                <div class="row">
+                  <div class="input-field col s6">
+                      <input id="name" type="text" name="name" class="validate">
+                      <label for="name">Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <select name="gen">
+                          <option value="" disabled selected>Choose Gender Availability</option>
+                          <option value="Female">Female</option>
+                          <option value="Male">Male</option>
+
+                      </select>
+                      <label>Gender Availability</label>
+
+                      </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s6">
+                      <label for="regno">Registeration Number</label>
+                      <input type="text" id="regno" name="regno">
+                  </div>
+
+                  <div class="input-field col s6">
+                    <select name="regne">
+                        <option value="" disabled selected>Choose The Registration Status</option>
+                        <option value="Registered">Registered</option>
+                        <option value="Not Registered">Not Registered</option>
+
+                    </select>
+                    <label>Registration Status</label>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s3">
+                      <select name="stime">
+                          <option value="" disabled selected>Choose Start Time</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+
+                      </select>
+                      <label>Start Time</label>
+                        </div>
+                        <div class="input-field col s3">
+                          <select name="sam">
+                              <option value="" disabled selected>Choose</option>
+                              <option value="AM">AM</option>
+                              <option value="PM">PM</option>
+
+                          </select>
+                          <label></label>
+                            </div>
+
+                        <div class="input-field col s3">
+                          <select name="etime">
+                              <option value="" disabled selected>Choose End Time</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+
+                          </select>
+                          <label>End Time</label>
+                            </div>
+                            <div class="input-field col s3">
+                              <select name="eam">
+                                  <option value="" disabled selected>Choose</option>
+                                  <option value="AM">AM</option>
+                                  <option value="PM">PM</option>
+
+                              </select>
+                              <label></label>
+                                </div>
+
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="input-field col s6">
+                      <select name="cuisine">
+                          <option value="" disabled selected>Choose The Cuisine</option>
+                          <option value="North Indian">North Indian</option>
+                          <option value="South Indian">South Indian</option>
+                          <option value="Both">Both</option>
+                      </select>
+                      <label>Diet</label>
+
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select name="diet">
+                            <option value="" disabled selected>Choose The Diet</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                        </select>
+                        <label>Diet</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="address" name="address" class="materialize-textarea" data-length="1000"></textarea>
+                        <label for="address">Address</label>
+                      </div>
+               </div>
+
+                <div class="row">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                  </button>
+                </div>
+
+              </form>
+    </div>
+
+        <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var selMenu = document.querySelectorAll('select');
+            var selinstances = M.FormSelect.init(selMenu, {});
+
+            $('textarea#address').characterCounter();
+
+        });
+    </script>
+
+    {% endif %}
+
+{% endblock %}
